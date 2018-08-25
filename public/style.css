@@ -11,6 +11,9 @@ main {
   background-color: #eeeeee;
 }
 
-#content {
-  max-width: 500px;
+@media only screen and (max-width: 600px), only screen and (max-height: 600px) {
+  #badge {
+    max-height: 90vh;
+    max-width: 90vw;
+  }
 }

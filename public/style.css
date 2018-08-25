@@ -1,0 +1,16 @@
+body {
+  font-family: sans-serif;
+  font-size: 18px;
+}
+
+main {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #cccccc;
+}
+
+#content {
+  max-width: 500px;
+}

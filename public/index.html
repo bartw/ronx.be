@@ -30,7 +30,24 @@
 
 <body>
     <main>
-        <img src="badge.svg" id="badge" />
+        <div id="hero">
+            <img src="badge.svg" id="badge" />
+        </div>
+        <div id="merch">
+            <a href="https://shop.spreadshirt.be/ronx">ronx</a>
+        </div>
+        
+        <script>
+            var spread_shop_config = {
+                shopName: 'ronx',
+                locale: 'nl_BE',
+                prefix: 'https://shop.spreadshirt.be',
+                baseId: 'merch'
+            };
+        </script>
+        
+        <script type="text/javascript" src="https://shop.spreadshirt.be/shopfiles/shopclient/shopclient.nocache.js">
+        </script>
     </main>
 </body>
 

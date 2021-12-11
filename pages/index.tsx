@@ -1,29 +1,36 @@
-import type { NextPage } from "next";
+import type { GetStaticPropsContext, InferGetStaticPropsType } from "next";
 import Head from "next/head";
 import Image from "next/image";
+import { getAllProducts } from "../lib/catalog";
 
-const Home: NextPage = () => {
-  return (
-    <div>
-      <Head>
-        <title>Ronx</title>
-        <meta name="description" content="Ronx" />
-        <link rel="icon" href="/ronx.svg" />
-      </Head>
+export const getStaticProps = async (context: GetStaticPropsContext) => {
+  const products = await getAllProducts();
 
-      <main
-        style={{
-          width: "100vw",
-          height: "100vh",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <Image src="/ronx.svg" alt="Ronx Logo" width={320} height={320} />
-      </main>
-    </div>
-  );
+  return {
+    props: { products },
+  };
 };
+
+const Home = ({ products }: InferGetStaticPropsType<typeof getStaticProps>) => (
+  <div>
+    <Head>
+      <title>Ronx</title>
+      <meta name="description" content="Ronx" />
+      <link rel="icon" href="/ronx.svg" />
+    </Head>
+
+    <header
+      style={{ marginTop: "50px", display: "flex", justifyContent: "center" }}
+    >
+      <Image src="/ronx.svg" alt="Ronx Logo" width={320} height={320} />
+    </header>
+
+    <main>
+      {products.map(({ id, name }) => (
+        <div key={id}>{name}</div>
+      ))}
+    </main>
+  </div>
+);
 
 export default Home;

@@ -1,20 +1,23 @@
 {
-  "name": "ronx.be",
-  "version": "1.0.0",
+  "name": "ronx",
+  "private": true,
   "scripts": {
-    "start": "http-server ./public"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/bartw/ronx.be.git"
+  "dependencies": {
+    "next": "12.0.7",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
   },
-  "author": "Bart Wijnants",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/bartw/ronx.be/issues"
-  },
-  "homepage": "https://github.com/bartw/ronx.be#readme",
   "devDependencies": {
-    "http-server": "^0.11.1"
+    "@types/node": "16.11.12",
+    "@types/react": "17.0.37",
+    "eslint": "8.4.1",
+    "eslint-config-next": "12.0.7",
+    "prettier": "^2.5.1",
+    "typescript": "4.5.3"
   }
 }

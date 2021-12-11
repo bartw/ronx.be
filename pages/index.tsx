@@ -5,10 +5,7 @@ import { getAllProducts } from "../lib/catalog";
 
 export const getStaticProps = async (context: GetStaticPropsContext) => {
   const products = await getAllProducts();
-
-  return {
-    props: { products },
-  };
+  return { props: { products } };
 };
 
 const Home = ({ products }: InferGetStaticPropsType<typeof getStaticProps>) => (
@@ -19,13 +16,11 @@ const Home = ({ products }: InferGetStaticPropsType<typeof getStaticProps>) => (
       <link rel="icon" href="/ronx.svg" />
     </Head>
 
-    <header
-      style={{ marginTop: "50px", display: "flex", justifyContent: "center" }}
-    >
+    <header className="mt-8 flex justify-center">
       <Image src="/ronx.svg" alt="Ronx Logo" width={320} height={320} />
     </header>
 
-    <main>
+    <main className="mt-8 mx-8">
       {products.map(({ id, name }) => (
         <div key={id}>{name}</div>
       ))}
